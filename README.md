@@ -1,10 +1,8 @@
-VeronesePresentation
-====================
+# VeronesePresentation
 
 VeronesePresentation is a Macaulay2 package that computes minimal presentations of Veronese subrings of graded polynomial or quotient rings. It uses a hybrid pipeline that combines Macaulay2 with a custom C++ backend for efficient Hilbert basis computations.
 
-Directory Structure
--------------------
+## Directory Structure
 
 - m2/       - Macaulay2 package source (VeronesePresentation.m2)
 - src/      - C++ source and header files
@@ -13,50 +11,52 @@ Directory Structure
 - setup.m2  - Optional setup script to build the binary
 - Makefile  - Compiles the C++ pipeline
 
-Getting Started
----------------
+## Getting Started
 
-1. Clone the repository and build the binary:
+### 1. Clone the repository and build the binary:
 
-   git clone https://github.com/yourname/VeronesePresentation.git
-   cd VeronesePresentation
-   make
+```bash
+git clone https://github.com/yourname/VeronesePresentation.git
+cd VeronesePresentation
+make
+```
 
-   Alternatively, you can build the binary from Macaulay2:
+Alternatively, you can build the binary from Macaulay2:
 
-   load "setup.m2"
+```macaulay2
+load "setup.m2"
+```
 
-2. Load the package in Macaulay2:
+### 2. Load the package in Macaulay2:
 
-   needsPackage("VeronesePresentation", FileName => "m2/VeronesePresentation.m2")
+```macaulay2
+needsPackage("VeronesePresentation", FileName => "m2/VeronesePresentation.m2")
+```
 
-3. Run a simple example:
+### 3. Run a simple example:
 
-   R = QQ[x, y, z, Degrees => {{2}, {3}, {5}}];
-   (phi, S) = veronesePresentation(R, 6);
-   phi -- the presentation map
-   S   -- the Veronese subring
+```macaulay2
+R = QQ[x, y, z, Degrees => {{2}, {3}, {5}}];
+(phi, S) = veronesePresentation(R, 6);
+phi -- the presentation map
+S   -- the Veronese subring
+```
 
-Why Use This?
--------------
+## Why Use This?
 
 - Modular design for easy extension
 - Fast C++ backend for lattice/Hilbert basis computation
 - Works with weighted graded rings
 - Designed for research in algebraic geometry and commutative algebra
 
-License
--------
+## License
 
-No license needed to use this code
+This project currently has no license.
 
-Acknowledgements
-----------------
+## Acknowledgements
 
-This project was developed by Jack Westbrook as part of the 2025 REU program in mathematics at the University of Michigan, Ann Arbor, with contributions and supervision by Austyn Simpson.
-This code also uses a cloned version of the C++ Normaliz project, which is essential for its logic.
+This project was developed by Jack Westbrook as part of the 2025 REU program in mathematics at the University of Michigan, Ann Arbor, with contributions and supervision by Austyn Simpson. This project implements custom C++ routines that mimic the functionality of Normaliz, but does not include or redistribute any Normaliz source code.
 
-Links
------
+## Links
 
 Jack Westbrook's website: https://westbrookjack.github.io

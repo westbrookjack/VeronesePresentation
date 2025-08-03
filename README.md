@@ -3,7 +3,7 @@ VeronesePresentation
 
 VeronesePresentation is a Macaulay2 package that computes minimal presentations of Veronese subrings
 of graded polynomial or quotient rings. It uses a hybrid pipeline that combines Macaulay2 with a custom
-C++ backend for efficient Normaliz computations.
+C++ backend for efficient Hilbert basis computations.
 
 Directory Structure
 -------------------
@@ -24,6 +24,10 @@ Getting Started
     cd VeronesePresentation
     make
 
+   Alternatively, you can build the binary from Macaulay2:
+
+    load "setup.m2"
+
 2. Load the package in Macaulay2:
 
     needsPackage("VeronesePresentation", FileName => "m2/VeronesePresentation.m2")
@@ -34,7 +38,6 @@ Getting Started
     (phi, S) = veronesePresentation(R, 6, VariableName => "v");
     phi -- the presentation map
     S   -- the Veronese subring
-
 
 Why Use This?
 -------------

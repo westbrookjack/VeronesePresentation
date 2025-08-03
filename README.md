@@ -55,7 +55,7 @@ This project currently has no license.
 
 ## Acknowledgements
 
-This project was developed by Jack Westbrook as part of the 2025 REU program in mathematics at the University of Michigan, Ann Arbor, with contributions and supervision by Austyn Simpson. This project implements custom C++ routines that mimic the functionality of Normaliz, but does not include or redistribute any Normaliz source code.
+This project was developed by Jack Westbrook as part of the 2025 REU program in mathematics at the University of Michigan, Ann Arbor, with contributions and supervision by Austyn Simpson. This project implements custom C++ routines that uses a cloned version of Normaliz.
 
 ## Links
 

@@ -20,13 +20,9 @@ Getting Started
 
 1. Clone the repository and build the binary:
 
-    git clone https://github.com/yourname/VeronesePresentation.git
+    git clone https://github.com/westbrookjack/VeronesePresentation.git
     cd VeronesePresentation
     make
-
-Alternatively, you can build the binary from Macaulay2:
-
-    load "setup.m2"
 
 2. Load the package in Macaulay2:
 
@@ -38,6 +34,7 @@ Alternatively, you can build the binary from Macaulay2:
     (phi, S) = veronesePresentation(R, 6, VariableName => "v");
     phi -- the presentation map
     S   -- the Veronese subring
+
 
 Why Use This?
 -------------

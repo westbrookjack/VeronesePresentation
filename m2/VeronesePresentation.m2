@@ -10,7 +10,7 @@ newPackage(
     DebuggingMode => false
 )
 
-export {"veronesePresentation"}
+export {"veronesePresentation", "VariableName"}
 
 -- Helper functions
 
@@ -20,7 +20,7 @@ writeInputFile = (degreeList, veroneseDegree) -> (
         file << "{" << toString degreeList << ", " << toString veroneseDegree << "}" << endl;
         close file;
     );
-)
+);
 
 readPipelineOutput = () -> (
     (
@@ -30,7 +30,7 @@ readPipelineOutput = () -> (
         removeFile filename;
         parsedOutput
     )
-)
+);
 
 
 FullPipelineBinaryPath = "bin/full_pipeline";
@@ -38,7 +38,7 @@ FullPipelineBinaryPath = "bin/full_pipeline";
 setPipelinePath = (s) -> (
     if not fileExists s then error("Binary not found at path: " | s);
     FullPipelineBinaryPath = s;
-)
+);
 
 runPipeline = () -> (
     if not fileExists FullPipelineBinaryPath then error "Missing binary: " | FullPipelineBinaryPath;
@@ -114,23 +114,26 @@ getMonomialList = (R, monoidBasis) -> (
 
 -- Main function to compute a presentation for the n-th Veronese subring of a graded ring R
 
-veronesePresentation = (R, veroneseDegree) -> (
-    if not isRing R then error "R must be a ring.";
-    if not isHomogeneous R then error "R must be a graded ring (i.e., its variables must have degrees).";
-    if not (class veroneseDegree === ZZ and veroneseDegree > 0) then error "n must be a positive integer.";
+veronesePresentation = method(Options => {VariableName => "p"});
 
+veronesePresentation(Ring, ZZ):=o-> (R, veroneseDegree) -> (
+    if not isHomogeneous R then error "R must be a graded ring.";
+    if veroneseDegree < 1 then error "n must be a positive integer.";
+
+    vPrefix := o#VariableName;
     degreeList := apply(gens R, g -> (degree g)#0);
     monoidBasis := getConeBasis(degreeList, veroneseDegree);
     monomialList := getMonomialList(R, monoidBasis);
     veroneseGenerators := minimalizeMonomialList(R, monomialList);
     numGenerators := #veroneseGenerators;
 
-    S := coefficientRing R;
-    veroneseRing := newRing(R, Variables => numGenerators);
+    K := coefficientRing R;
+    genPolyRing := (r) -> K[apply(1..r, i -> value(vPrefix | "_" | toString i))];
+    veroneseRing := genPolyRing(numGenerators);
     presentationMap := map(R, veroneseRing, veroneseGenerators);
 
     (presentationMap, veroneseRing / kernel presentationMap)
-)
+);
 
 beginDocumentation()
 

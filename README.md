@@ -20,24 +20,27 @@ Getting Started
 
 1. Clone the repository and build the binary:
 
+    ```bash
     git clone https://github.com/westbrookjack/VeronesePresentation.git
     cd VeronesePresentation
     make
-
-   Alternatively, you can build the binary from Macaulay2:
-
-    load "setup.m2"
+    ```
 
 2. Load the package in Macaulay2:
 
+    ```macaulay2
     needsPackage("VeronesePresentation", FileName => "m2/VeronesePresentation.m2")
+    ```
 
 3. Run a simple example:
 
+    ```macaulay2
     R = QQ[x, y, z, Degrees => {{2}, {3}, {5}}];
     (phi, S) = veronesePresentation(R, 6, VariableName => "v");
     phi -- the presentation map
     S   -- the Veronese subring
+    ```
+
 
 Why Use This?
 -------------

@@ -109,10 +109,9 @@ Description
   Text
     Returns a presentation of the n-th Veronese subring of R.
   Example
-    R = QQ[x, y, z];
-    (f, P) = veronesePresentation(R, 2);
-    f -- the map
-    P -- the quotient ring
+    R = GF(3,1)[x,y,z, Degrees => {{2},{4},{5}}]/ideal(z^2-x*y*(x^2-y));
+    f = veronesePresentation(R, 5);
+    f -- the map from a polynomial ring onto the Veronese subring
 Acknowledgement
   This code was partially created during the 2025 REU program in mathematics at the University of Michigan, Ann Arbor.
   In addition, this code relies on the Normaliz package. The original Normaliz library can be found at https://www.normaliz.uni-osnabrueck.de/.

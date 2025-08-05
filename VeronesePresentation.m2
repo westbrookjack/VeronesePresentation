@@ -73,7 +73,6 @@ veronesePresentation(Ring, ZZ):=o-> (R, veroneseDegree) -> (
     reindexMap := map(prunedRing, outRing, gens prunedRing);
 
     compositeMap := presentationMap * pruneMap * reindexMap;
-
     
     --Not sure what the best return type is here, but currently it is just the map onto the Veronese subring.
     compositeMap
@@ -102,9 +101,7 @@ Inputs
   R:Ring -- a graded ring
   n:ZZ  -- positive
 Outputs
-  l:List
-    l#0:Map -- a ring homomorphism from a polynomial ring into {\t R}, such that its source modulo its kernel is a presentation of the Veronese subring
-    l#1:QuotientRing -- a presentation of the {\t n}-th Veronese subring of {\t R}, given by the source of l#0 modulo its kernel
+  f:RingMap -- a ring homomorphism from a polynomial ring onto the {\t n}-th Veronese subring of R
 Description
   Text
     Returns a presentation of the n-th Veronese subring of R.

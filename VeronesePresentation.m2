@@ -75,8 +75,8 @@ veronesePresentation(Ring, ZZ):=o-> (R, veroneseDegree) -> (
     compositeMap := presentationMap * pruneMap * reindexMap;
 
     
-
-    (compositeMap, outRing/kernel compositeMap)
+    --Not sure what the best return type is here, but currently it is just the map onto the Veronese subring.
+    compositeMap
 );
 
 beginDocumentation()
